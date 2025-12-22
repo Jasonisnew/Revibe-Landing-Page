@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revibe - AI-Powered Rehabilitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header Navigation -->
     <header class="header">
         <nav class="nav">
-            <div class="nav-brand">REVIBE</div>
+            <div class="nav-brand hero-entrance-item" data-entrance-delay="0">REVIBE</div>
             <ul class="nav-links">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#features">FEATURES</a></li>
-                <li><a href="#team">TEAM</a></li>
-                <li><a href="#try">TRY IT</a></li>
+                <li><a href="#home" class="nav-link">HOME</a></li>
+                <li><a href="#features" class="nav-link">FEATURES</a></li>
+                <li><a href="#team" class="nav-link">TEAM</a></li>
+                <li><a href="#try" class="nav-link">TRY IT</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="first-entry-gradient" id="first-entry-gradient"></div>
+        <div class="hero-background-animation"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title" id="typewriter-title"></h1>
-            <div class="hero-words">
+            <h1 class="hero-title hero-entrance-item" id="typewriter-title" data-entrance-delay="80"></h1>
+            <p class="hero-subtitle hero-entrance-item" data-entrance-delay="160">Your One-And-Only AI-Powered Rehab Companion</p>
+            <div class="hero-words hero-entrance-item" data-entrance-delay="240">
                 <span class="hero-word">Personalized</span>
+                <span class="hero-word-divider">·</span>
                 <span class="hero-word hero-word-precise">Precise</span>
+                <span class="hero-word-divider">·</span>
                 <span class="hero-word">Proven</span>
             </div>
-            <button class="cta-button" onclick="scrollToSection('try')">START YOUR RECOVERY NOW!</button>
+            <button class="cta-button hero-cta hero-entrance-item" onclick="scrollToSection('try')" data-entrance-delay="320">START YOUR RECOVERY NOW</button>
         </div>
     </section>
 
     <!-- Description Section -->
     <section class="description">
         <div class="container">
-            <h2 class="section-title">What is Revibe?</h2>
-            <p class="description-text">
+            <h2 class="section-title fade-in-up">What is Revibe?</h2>
+            <p class="description-text fade-in-up">
                 Revibe is an AI-based personal rehabilitation assistant that makes recovery more efficient, affordable, and sustainable. 
                 Using advanced motion recognition technology, Revibe provides real-time feedback and personalized exercise guidance, 
                 helping you regain strength and vitality through every step of your recovery journey.
@@ -49,7 +57,7 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">How Revibe Works</h2>
+            <h2 class="section-title fade-in-up">How Revibe Works</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">💁</div>
@@ -68,7 +76,7 @@
                 </div>
             </div>
             
-            <div class="user-flow">
+            <div class="user-flow fade-in-up">
                 <h3 class="flow-title">Simple User Experience</h3>
                 <div class="flow-steps">
                     <div class="flow-step">
@@ -100,7 +108,7 @@
     <!-- Team Section -->
     <section id="team" class="team">
         <div class="container">
-            <h2 class="section-title">Our Team</h2>
+            <h2 class="section-title fade-in-up">Our Team</h2>
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-avatar">👨‍💻</div>
@@ -132,9 +140,9 @@
     <!-- Call to Action Section -->
     <section id="try" class="cta-section">
         <div class="container">
-            <h2 class="section-title">Explore Revibe</h2>
-            <p class="cta-text">See how Revibe helps users recover smarter and faster.</p>
-            <div class="cta-buttons">
+            <h2 class="section-title fade-in-up">Explore Revibe</h2>
+            <p class="cta-text fade-in-up">See how Revibe helps users recover smarter and faster.</p>
+            <div class="cta-buttons fade-in-up">
                 <a href="#" class="cta-button-primary" id="demo-link">Try Revibe Now</a>
                 <a href="#" class="cta-button-secondary" id="github-link">View on GitHub</a>
             </div>
@@ -144,7 +152,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Revibe. Empowering recovery through AI innovation.</p>
+            <p>&copy; 2025 Revibe. Empowering recovery through AI innovation.</p>
         </div>
     </footer>
 

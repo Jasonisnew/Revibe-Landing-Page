@@ -446,13 +446,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-words {
     display: flex;
-    justify-content: center;
+    /* Use space-evenly for better optical balance with uneven word widths */
+    justify-content: space-evenly;
     align-items: center;
-    gap: clamp(2rem, 4vw, 3.5rem);
     margin-bottom: var(--spacing-xl);
     flex-wrap: nowrap;
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
     position: relative;
     min-height: 3rem;
     margin-left: auto;
@@ -466,14 +466,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     flex: 0 0 auto;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    /* Removed letter-spacing - it adds trailing space that shifts visual balance */
+    letter-spacing: 0.02em;
     transition: all var(--duration-fast) var(--easing-out);
     white-space: nowrap;
     line-height: 1.2;
     padding: 0;
     margin: 0;
     will-change: transform;
-    text-align: center;
 }
 
 .hero-word:hover {
@@ -503,11 +503,12 @@ h1, h2, h3, h4, h5, h6 {
 .hero-word-divider {
     font-family: var(--font-heading);
     font-size: clamp(1rem, 2vw, 1.5rem);
-    color: rgba(15, 23, 42, 0.3);
-    font-weight: 300;
+    /* Increased opacity for better visual separation */
+    color: rgba(15, 23, 42, 0.5);
+    font-weight: 400;
     line-height: 1.2;
     flex: 0 0 auto;
-    padding: 0;
+    padding: 0 0.25em;
     margin: 0;
     transition: color var(--duration-fast) var(--easing-out);
 }

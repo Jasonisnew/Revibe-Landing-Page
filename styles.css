@@ -402,6 +402,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0 20px;
 }
 
 .hero-title {
@@ -417,13 +419,13 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     filter: drop-shadow(0 2px 10px rgba(139, 92, 246, 0.2));
+    text-align: center;
+    width: 100%;
 }
 
+/* Cursor disabled - it created optical imbalance by adding visual weight to the right side */
 .hero-title::after {
-    content: '|';
-    animation: blink 1s infinite;
-    color: var(--color-primary);
-    opacity: 0.8;
+    content: none;
 }
 
 @keyframes blink {
@@ -438,6 +440,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     letter-spacing: 0.05em;
     opacity: 0.9;
+    text-align: center;
+    width: 100%;
 }
 
 .hero-words {
@@ -451,6 +455,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 700px;
     position: relative;
     min-height: 3rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-word {
@@ -467,6 +473,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     margin: 0;
     will-change: transform;
+    text-align: center;
 }
 
 .hero-word:hover {
@@ -528,6 +535,8 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     font-family: var(--font-heading);
     will-change: transform, box-shadow;
+    text-align: center;
+    display: inline-block;
 }
 
 .cta-button::before {

@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const typewriterTitle = document.getElementById('typewriter-title');
     if (typewriterTitle) {
         setTimeout(() => {
-            typeWriter(typewriterTitle, 'Revibe', 150);
+        typeWriter(typewriterTitle, 'Revibe', 150);
         }, 100);
     }
     
@@ -295,18 +295,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         entriesByContainer.forEach((containerEntries) => {
             containerEntries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
+            if (entry.isIntersecting) {
                     if (prefersReducedMotion) {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
                     } else {
                         setTimeout(() => {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                         }, index * 90); // 90ms stagger for premium feel
                     }
                     cardObserver.unobserve(entry.target);
-                }
+            }
             });
         });
     }, cardObserverOptions);
@@ -314,12 +314,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observe feature cards and team cards for enhanced animations
     if (!prefersReducedMotion) {
         const cards = document.querySelectorAll('.feature-card, .team-card, .flow-step');
-        cards.forEach(card => {
-            card.style.opacity = '0';
+    cards.forEach(card => {
+        card.style.opacity = '0';
             card.style.transform = 'translateY(18px)';
             card.style.transition = 'opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)';
             cardObserver.observe(card);
-        });
+    });
     }
 
     // Update demo and GitHub links (placeholder - update with actual URLs)

@@ -167,86 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize hero entrance animation
     initHeroEntrance();
-
-    // #region agent log - Debug hero words optical centering
-    setTimeout(() => {
-        const heroWords = document.querySelector('.hero-words');
-        const heroWordEls = document.querySelectorAll('.hero-word');
-        const dividers = document.querySelectorAll('.hero-word-divider');
-
-        if (heroWords && heroWordEls.length > 0) {
-            const containerRect = heroWords.getBoundingClientRect();
-            const containerStyles = getComputedStyle(heroWords);
-
-            // Calculate total content width and center of mass (width-weighted)
-            let totalWidth = 0;
-            let weightedPosition = 0;
-            let contentLeft = Number.POSITIVE_INFINITY;
-            let contentRight = Number.NEGATIVE_INFINITY;
-
-            const wordData = Array.from(heroWordEls).map((w, i) => {
-                const r = w.getBoundingClientRect();
-                const relativeLeft = r.left - containerRect.left;
-                const relativeRight = r.right - containerRect.left;
-                const relativeCenter = relativeLeft + r.width / 2;
-                totalWidth += r.width;
-                weightedPosition += r.width * relativeCenter;
-                contentLeft = Math.min(contentLeft, relativeLeft);
-                contentRight = Math.max(contentRight, relativeRight);
-                return { index: i, text: w.textContent, width: r.width, relativeLeft, relativeRight, relativeCenter };
-            });
-
-            const dividerData = Array.from(dividers).map((d, i) => {
-                const r = d.getBoundingClientRect();
-                return { index: i, width: r.width, char: d.textContent };
-            });
-
-            const geometricCenter = containerRect.width / 2;
-            const visualCenterOfMass = weightedPosition / totalWidth;
-            const imbalance = visualCenterOfMass - geometricCenter;
-
-            const edgeSpaceLeft = isFinite(contentLeft) ? contentLeft : null;
-            const edgeSpaceRight = isFinite(contentRight) ? (containerRect.width - contentRight) : null;
-            const contentCenter = isFinite(contentLeft) && isFinite(contentRight) ? (contentLeft + contentRight) / 2 : null;
-            const boundsImbalance = contentCenter != null ? (contentCenter - geometricCenter) : null;
-
-            const wordEl = heroWordEls[0];
-            const wordDisplay = wordEl ? getComputedStyle(wordEl).display : 'unknown';
-
-            fetch('http://127.0.0.1:7243/ingest/fdf0d0d3-45ad-4235-a883-6c29ac9c8a55', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    location: 'script.js:DEBUG',
-                    message: 'Hero Words Layout Scan',
-                    data: {
-                        containerWidth: containerRect.width,
-                        justifyContent: containerStyles.justifyContent,
-                        gap: containerStyles.gap,
-                        wordDisplay,
-                        wordCount: heroWordEls.length,
-                        dividerCount: dividers.length,
-                        words: wordData,
-                        dividers: dividerData,
-                        geometricCenter,
-                        visualCenterOfMass,
-                        imbalance,
-                        contentLeft,
-                        contentRight,
-                        edgeSpaceLeft,
-                        edgeSpaceRight,
-                        contentCenter,
-                        boundsImbalance
-                    },
-                    timestamp: Date.now(),
-                    sessionId: 'debug-session',
-                    runId: 'layout-scan',
-                    hypothesisId: 'WORDS-LAYOUT'
-                })
-            }).catch(() => {});
-        }
-    }, 1500);
-    // #endregion
     
     // Update active nav link on scroll
     updateActiveNavLink();
@@ -400,31 +320,6 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.transition = 'opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)';
             cardObserver.observe(card);
     });
-    }
-
-    // Update demo and GitHub links (placeholder - update with actual URLs)
-    const demoLink = document.getElementById('demo-link');
-    const githubLink = document.getElementById('github-link');
-    
-    // You can update these URLs when you have the actual links
-    if (demoLink) {
-        demoLink.addEventListener('click', function(e) {
-            // Uncomment and update when you have the actual demo URL
-            // window.location.href = 'https://your-demo-url.com';
-            // For now, just prevent default and show alert
-            e.preventDefault();
-            alert('Demo link will be updated with your actual Revibe app URL!');
-        });
-    }
-
-    if (githubLink) {
-        githubLink.addEventListener('click', function(e) {
-            // Uncomment and update when you have the actual GitHub URL
-            // window.location.href = 'https://github.com/your-username/revibe';
-            // For now, just prevent default and show alert
-            e.preventDefault();
-            alert('GitHub link will be updated with your actual repository URL!');
-        });
     }
 });
 

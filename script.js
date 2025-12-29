@@ -160,6 +160,56 @@ function updateActiveNavLink() {
     sections.forEach(section => sectionObserver.observe(section));
 }
 
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function() {
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Email Form Handler
+function initEmailForm() {
+    const emailForm = document.getElementById('email-form');
+    if (emailForm) {
+        emailForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // Here you would typically send the email to your backend
+                // For now, we'll just show a success message
+                alert('Thank you for subscribing! We\'ll keep you updated on Revibe updates.');
+                emailInput.value = '';
+            }
+        });
+    }
+}
+
 // Add smooth scrolling to navigation links
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize first entry gradient transition
@@ -168,6 +218,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize hero entrance animation
     initHeroEntrance();
     
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Initialize email form
+    initEmailForm();
+
     // Update active nav link on scroll
     updateActiveNavLink();
     
@@ -319,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.transform = 'translateY(18px)';
             card.style.transition = 'opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)';
             cardObserver.observe(card);
-    });
+        });
     }
 });
 

@@ -14,6 +14,11 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand hero-entrance-item" data-entrance-delay="0">REVIBE</div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link">HOME</a></li>
                 <li><a href="#features" class="nav-link">FEATURES</a></li>
@@ -49,6 +54,27 @@
                 Using advanced motion recognition technology, Revibe provides real-time feedback and personalized exercise guidance, 
                 helping you regain strength and vitality through every step of your recovery journey.
             </p>
+        </div>
+    </section>
+
+    <!-- Product Screenshots Section -->
+    <section class="screenshots">
+        <div class="container">
+            <h2 class="section-title fade-in-up">See Revibe in Action</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-card fade-in-up">
+                    <img src="Xnip2025-12-29_21-09-52.jpg" alt="Dashboard Overview - Track your daily progress and recovery goals" class="screenshot-image">
+                    <p class="screenshot-caption">Track your daily progress and recovery goals</p>
+                </div>
+                <div class="screenshot-card fade-in-up">
+                    <img src="Xnip2025-12-29_21-11-50.jpg" alt="Exercise Guidance - Real-time AI posture correction and feedback" class="screenshot-image">
+                    <p class="screenshot-caption">Real-time AI posture correction and feedback</p>
+                </div>
+                <div class="screenshot-card fade-in-up">
+                    <img src="Xnip2025-12-29_21-12-29.jpg" alt="Progress Analytics - Visualize your recovery journey over time" class="screenshot-image">
+                    <p class="screenshot-caption">Visualize your recovery journey over time</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -143,6 +169,33 @@
             <div class="cta-buttons fade-in-up">
                 <a href="https://revibepage.vercel.app/" class="cta-button-primary" id="demo-link" target="_blank" rel="noopener noreferrer">Try Revibe Now</a>
                 <a href="https://github.com/Jasonisnew/Revibe-2" class="cta-button-secondary" id="github-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="email-capture">
+        <div class="container">
+            <div class="email-capture-content fade-in-up">
+                <h3 class="email-capture-title">Stay Updated on Your Recovery Journey</h3>
+                <p class="email-capture-subtitle">Get early access, updates, and exclusive recovery tips delivered to your inbox.</p>
+                <form class="email-form" id="email-form">
+                    <div class="email-input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email-input" 
+                            class="email-input" 
+                            placeholder="Enter your email address" 
+                            required
+                            aria-label="Email address"
+                        />
+                        <button type="submit" class="email-submit-btn">
+                            <span class="btn-text">Get Started</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                    <p class="email-privacy">We respect your privacy. Unsubscribe anytime.</p>
+                </form>
             </div>
         </div>
     </section>

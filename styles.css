@@ -254,6 +254,43 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
 }
 
+/* Signup Counter in Nav */
+.signup-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
+    border-radius: 50px;
+    border: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-normal);
+}
+
+.signup-counter:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(251, 146, 60, 0.15) 100%);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.counter-number {
+    font-weight: 800;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-heading);
+}
+
+.counter-text {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
@@ -295,6 +332,10 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: flex;
+    }
+    
+    .signup-counter {
+        display: none;
     }
     
     .nav-links {
@@ -653,6 +694,124 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-cta {
     animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Hero Email Capture */
+.hero-email-capture {
+    margin-top: var(--spacing-xl);
+    width: 100%;
+    max-width: 550px;
+}
+
+.hero-email-form {
+    width: 100%;
+}
+
+.hero-email-input-wrapper {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-email-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 16px 24px;
+    font-size: 1rem;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    transition: all var(--transition-normal);
+    outline: none;
+    box-shadow: var(--shadow-soft);
+}
+
+.hero-email-input:focus {
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15), var(--shadow-soft);
+}
+
+.hero-email-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.hero-email-submit-btn {
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-orange) 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    box-shadow: var(--shadow-energetic);
+    white-space: nowrap;
+}
+
+.hero-email-submit-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-glow-strong), var(--shadow-energetic);
+}
+
+.hero-email-submit-btn:active {
+    transform: translateY(0);
+}
+
+.hero-email-submit-btn .btn-icon {
+    font-size: 1.2rem;
+    transition: transform var(--transition-normal);
+}
+
+.hero-email-submit-btn:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+.hero-email-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    margin-top: var(--spacing-sm);
+}
+
+.counter-number-inline {
+    font-weight: 800;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-heading);
+}
+
+@media (max-width: 768px) {
+    .hero-email-input-wrapper {
+        flex-direction: column;
+    }
+    
+    .hero-email-input {
+        min-width: 100%;
+    }
+    
+    .hero-email-submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @keyframes pulseGlow {
@@ -1467,142 +1626,6 @@ h1, h2, h3, h4, h5, h6 {
     .cta-button-secondary:hover,
     .cta-button-secondary:active {
         transform: none;
-    }
-}
-
-/* ============================================
-   EMAIL CAPTURE SECTION
-   ============================================ */
-
-.email-capture {
-    padding: var(--spacing-xxl) 20px;
-    background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
-    text-align: center;
-}
-
-.email-capture-content {
-    max-width: 700px;
-    margin: 0 auto;
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-    padding: var(--spacing-xl);
-    border-radius: 30px;
-    box-shadow: var(--shadow-glass);
-    border: 1px solid var(--glass-border);
-}
-
-.email-capture-title {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-orange) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: var(--spacing-md);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.email-capture-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.6;
-}
-
-.email-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.email-input-wrapper {
-    display: flex;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
-    flex-wrap: wrap;
-}
-
-.email-input {
-    flex: 1;
-    min-width: 250px;
-    padding: 18px 24px;
-    font-size: 1rem;
-    border: 2px solid var(--color-border);
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.8);
-    color: var(--color-text-primary);
-    font-family: var(--font-primary);
-    transition: all var(--transition-normal);
-    outline: none;
-}
-
-.email-input:focus {
-    border-color: var(--color-primary);
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
-}
-
-.email-input::placeholder {
-    color: var(--color-text-muted);
-}
-
-.email-submit-btn {
-    padding: 18px 40px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-orange) 100%);
-    color: #FFFFFF;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    box-shadow: var(--shadow-energetic);
-    white-space: nowrap;
-}
-
-.email-submit-btn:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: var(--shadow-glow-strong), var(--shadow-energetic);
-}
-
-.email-submit-btn:active {
-    transform: translateY(0);
-}
-
-.btn-icon {
-    font-size: 1.3rem;
-    transition: transform var(--transition-normal);
-}
-
-.email-submit-btn:hover .btn-icon {
-    transform: translateX(4px);
-}
-
-.email-privacy {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    margin-top: var(--spacing-sm);
-}
-
-@media (max-width: 768px) {
-    .email-input-wrapper {
-        flex-direction: column;
-    }
-    
-    .email-input {
-        min-width: 100%;
-    }
-    
-    .email-submit-btn {
-        width: 100%;
-        justify-content: center;
     }
 }
 

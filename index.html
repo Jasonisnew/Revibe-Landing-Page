@@ -25,6 +25,11 @@
                 <li><a href="#team" class="nav-link">TEAM</a></li>
                 <li><a href="https://revibepage.vercel.app/" class="nav-link" target="_blank" rel="noopener noreferrer">TRY IT</a></li>
             </ul>
+            <div class="signup-counter">
+                <span class="counter-text">Serving</span>
+                <span class="counter-number" id="signup-count">--</span>
+                <span class="counter-text">incoming users</span>
+            </div>
         </nav>
     </header>
 
@@ -41,7 +46,30 @@
                 <div class="hero-word hero-word-precise">Precise</div>
                 <div class="hero-word">Proven</div>
             </div>
-            <button class="cta-button hero-cta hero-entrance-item" onclick="scrollToSection('try')" data-entrance-delay="320">START YOUR RECOVERY NOW</button>
+            <!-- Email Capture in Hero -->
+            <div class="hero-email-capture hero-entrance-item" data-entrance-delay="320">
+                <form class="hero-email-form" id="email-form">
+                    <div class="hero-email-input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email-input" 
+                            class="hero-email-input" 
+                            placeholder="Enter your email address" 
+                            required
+                            aria-label="Email address"
+                        />
+                        <button type="submit" class="hero-email-submit-btn">
+                            <span class="btn-text">Get Started</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                    <p class="hero-email-counter">
+                        <span>Serving</span>
+                        <span class="counter-number-inline" id="signup-count-hero">--</span>
+                        <span>incoming users</span>
+                    </p>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -173,33 +201,6 @@
         </div>
     </section>
 
-    <!-- Email Capture Section -->
-    <section class="email-capture">
-        <div class="container">
-            <div class="email-capture-content fade-in-up">
-                <h3 class="email-capture-title">Stay Updated on Your Recovery Journey</h3>
-                <p class="email-capture-subtitle">Get early access, updates, and exclusive recovery tips delivered to your inbox.</p>
-                <form class="email-form" id="email-form">
-                    <div class="email-input-wrapper">
-                        <input 
-                            type="email" 
-                            id="email-input" 
-                            class="email-input" 
-                            placeholder="Enter your email address" 
-                            required
-                            aria-label="Email address"
-                        />
-                        <button type="submit" class="email-submit-btn">
-                            <span class="btn-text">Get Started</span>
-                            <span class="btn-icon">→</span>
-                        </button>
-                    </div>
-                    <p class="email-privacy">We respect your privacy. Unsubscribe anytime.</p>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -207,6 +208,9 @@
         </div>
     </footer>
 
+    <!-- Supabase Client - Load before our scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

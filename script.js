@@ -256,7 +256,7 @@ function initEmailForm() {
         emailForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const emailInput = document.getElementById('email-input');
-            const submitBtn = emailForm.querySelector('.email-submit-btn');
+            const submitBtn = emailForm.querySelector('.hero-email-submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
             const email = emailInput.value.trim();
             

@@ -29,6 +29,7 @@
                 <li><a href="#home" class="nav-link">HOME</a></li>
                 <li><a href="#features" class="nav-link">FEATURES</a></li>
                 <li><a href="#team" class="nav-link">TEAM</a></li>
+                <li><a href="#support" class="nav-link">SUPPORT</a></li>
                 <li><a href="https://revibepage.vercel.app/" class="nav-link" target="_blank" rel="noopener noreferrer">TRY IT</a></li>
             </ul>
             <div class="signup-counter">
@@ -191,6 +192,81 @@
                         <li>Alerts users to move to protect spinal health</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Support Revibe's Mission 💜</h2>
+            <p class="support-subtitle fade-in-up">
+                Help us make rehabilitation accessible to everyone. Your support fuels our development and keeps Revibe free for those who need it most.
+            </p>
+            
+            <!-- Donation Tiers -->
+            <div class="donation-tiers fade-in-up">
+                <a href="https://buy.stripe.com/test_aFaaEY8ZAecd0kxbqiaAw00" 
+                   class="tier-card" 
+                   onclick="trackDonation(5, 'Coffee')" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-tier="coffee">
+                    <div class="tier-icon">☕</div>
+                    <h3 class="tier-title">Coffee</h3>
+                    <p class="tier-price">$5</p>
+                    <p class="tier-description">Buy us a coffee</p>
+                    <span class="tier-button-inline">
+                        Support →
+                    </span>
+                </a>
+                
+                <a href="https://buy.stripe.com/test_6oUfZi8ZA7NP7MZ9iaaAw01" 
+                   class="tier-card tier-popular" 
+                   onclick="trackDonation(15, 'Bagel')" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-tier="bagel">
+                    <div class="tier-badge">Most Popular</div>
+                    <div class="tier-icon">🥯</div>
+                    <h3 class="tier-title">Bagel</h3>
+                    <p class="tier-price">$15</p>
+                    <p class="tier-description">Fuel a development session</p>
+                    <span class="tier-button-inline tier-button-primary">
+                        Support →
+                    </span>
+                </a>
+                
+                <a href="https://buy.stripe.com/test_6oU3cwejUd89aZb7a2aAw02" 
+                   class="tier-card" 
+                   onclick="trackDonation(30, 'Lunch')" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-tier="lunch">
+                    <div class="tier-icon">🍱</div>
+                    <h3 class="tier-title">Lunch</h3>
+                    <p class="tier-price">$30</p>
+                    <p class="tier-description">Keep the team energized</p>
+                    <span class="tier-button-inline">
+                        Support →
+                    </span>
+                </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="trust-indicators fade-in-up">
+                <span class="trust-item">
+                    <span class="trust-icon">🔒</span>
+                    <span class="trust-text">Secure via Stripe</span>
+                </span>
+                <span class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span class="trust-text">100% to Development</span>
+                </span>
+                <span class="trust-item">
+                    <span class="trust-icon">💳</span>
+                    <span class="trust-text">All Cards Accepted</span>
+                </span>
             </div>
         </div>
     </section>

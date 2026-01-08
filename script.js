@@ -1,3 +1,13 @@
+// Track donation clicks
+function trackDonation(amount, tier) {
+    trackEvent('Donation Link Clicked', {
+        amount: amount,
+        tier: tier,
+        currency: 'USD',
+        timestamp: new Date().toISOString()
+    });
+}
+
 // Typewriter effect function with continuous loop
 function typeWriter(element, text, speed = 150, pauseTime = 2000) {
     let i = 0;

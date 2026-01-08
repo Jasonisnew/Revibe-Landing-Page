@@ -252,13 +252,33 @@ function animateCounter(element, target) {
 // Email Form Handler with Supabase
 function initEmailForm() {
     const emailForm = document.getElementById('email-form');
+    const emailInput = document.getElementById('email-input');
+    
+    // Track when user starts entering email
+    if (emailInput) {
+        let hasTrackedEmailEntry = false;
+        emailInput.addEventListener('input', function() {
+            if (!hasTrackedEmailEntry && this.value.length > 0) {
+                trackEvent('Email Input Started', {
+                    location: 'Hero Section'
+                });
+                hasTrackedEmailEntry = true;
+            }
+        });
+    }
+    
     if (emailForm) {
         emailForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const emailInput = document.getElementById('email-input');
             const submitBtn = emailForm.querySelector('.hero-email-submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
             const email = emailInput.value.trim();
+            
+            // Track Get Started button click
+            trackEvent('Get Started Clicked', {
+                email: email,
+                location: 'Hero Section'
+            });
             
             if (!email) {
                 showMessage('Please enter a valid email address', 'error');
@@ -297,6 +317,13 @@ function initEmailForm() {
                 } else {
                     // Success!
                     showMessage('Thank you for subscribing! We\'ll keep you updated on Revibe updates.', 'success');
+                    
+                    // Track successful email submission
+                    trackEvent('Email Submitted Successfully', {
+                        email: email,
+                        location: 'Hero Section'
+                    });
+                    
                     emailInput.value = '';
                     // Refresh the signup count
                     fetchSignupCount();
@@ -354,6 +381,13 @@ function showMessage(message, type) {
 
 // Add smooth scrolling to navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    // Track page load
+    trackEvent('Page Loaded', {
+        page: 'Revibe Landing Page',
+        timestamp: new Date().toISOString(),
+        referrer: document.referrer || 'direct'
+    });
+    
     // Initialize first entry gradient transition
     initFirstEntryGradient();
     
@@ -394,6 +428,14 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
+            const linkText = this.textContent.trim();
+            
+            // Track navigation link clicks
+            trackEvent('Navigation Link Clicked', {
+                link_text: linkText,
+                href: href,
+                target: href.startsWith('#') ? 'internal' : 'external'
+            });
             
             // Only handle anchor links
             if (href.startsWith('#')) {
@@ -403,6 +445,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Track CTA button clicks
+    const demoLink = document.getElementById('demo-link');
+    const githubLink = document.getElementById('github-link');
+    
+    if (demoLink) {
+        demoLink.addEventListener('click', function() {
+            trackEvent('CTA Button Clicked', {
+                button_text: 'Try Revibe Now',
+                url: this.href,
+                location: 'CTA Section'
+            });
+        });
+    }
+    
+    if (githubLink) {
+        githubLink.addEventListener('click', function() {
+            trackEvent('CTA Button Clicked', {
+                button_text: 'View on GitHub',
+                url: this.href,
+                location: 'CTA Section'
+            });
+        });
+    }
 
     // Add scroll effect to header
     const header = document.querySelector('.header');
